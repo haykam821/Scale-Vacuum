@@ -24,10 +24,12 @@ class AncientChorusFruitItem extends Item {
 
 		entity.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 80));
 
-		if (entity.dimension == Main.SCALE_VACUUM) {
-			FabricDimensions.teleport(entity, DimensionType.OVERWORLD, Main.OVERWORLD_SURFACE_PLACER);
-		} else {
-			FabricDimensions.teleport(entity, Main.SCALE_VACUUM);
+		if (!world.isClient) {
+			if (entity.dimension == Main.SCALE_VACUUM) {
+				FabricDimensions.teleport(entity, DimensionType.OVERWORLD, Main.OVERWORLD_SURFACE_PLACER);
+			} else {
+				FabricDimensions.teleport(entity, Main.SCALE_VACUUM);
+			}
 		}
 
 		return newStack;
