@@ -17,8 +17,8 @@ public class ScaleVacuumVoidBiome extends Biome {
 			.scale(0.2F)
 			.temperature(0.5F)
 			.downfall(0.5F)
-			.waterColor(4159204)
-			.waterFogColor(329011)
+			.waterColor(0x7647BE)
+			.waterFogColor(0x7647BE)
 			.parent((String) null)
 		);
 
