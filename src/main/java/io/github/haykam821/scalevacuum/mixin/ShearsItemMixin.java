@@ -11,7 +11,6 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.item.Items;
 import net.minecraft.item.ShearsItem;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;

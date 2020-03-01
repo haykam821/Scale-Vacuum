@@ -22,8 +22,6 @@ class AncientChorusFruitItem extends Item {
 	public ItemStack finishUsing(ItemStack stack, World world, LivingEntity entity) {
 		ItemStack newStack = super.finishUsing(stack, world, entity);
 
-		entity.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 80));
-
 		if (!world.isClient) {
 			if (entity.dimension == Main.SCALE_VACUUM) {
 				FabricDimensions.teleport(entity, DimensionType.OVERWORLD, Main.OVERWORLD_SURFACE_PLACER);
@@ -31,6 +29,9 @@ class AncientChorusFruitItem extends Item {
 				FabricDimensions.teleport(entity, Main.SCALE_VACUUM);
 			}
 		}
+
+		entity.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 80));
+		entity.setHealth(Math.min(entity.getHealth(), entity.getMaximumHealth()));
 
 		return newStack;
 	}

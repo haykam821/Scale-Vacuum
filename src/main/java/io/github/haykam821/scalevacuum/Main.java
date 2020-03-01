@@ -1,6 +1,7 @@
 package io.github.haykam821.scalevacuum;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.dimension.v1.EntityPlacer;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensionType;
 import net.minecraft.block.pattern.BlockPattern;
@@ -11,6 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
@@ -61,7 +63,15 @@ public class Main implements ModInitializer {
 	);
   	public static final Item DRAGON_SCALE = new Item(
 		new Item.Settings()
+		.rarity(Rarity.RARE)
 		.group(ItemGroup.MATERIALS)
+	);
+
+	public static final Item ENDER_PURIFIER = new PurifierItem(
+		new Item.Settings()
+		.rarity(Rarity.UNCOMMON)
+		.group(ItemGroup.MISC)
+		.maxCount(1)
 	);
 
 	@Override
@@ -69,5 +79,10 @@ public class Main implements ModInitializer {
 		Registry.register(Registry.BIOME, new Identifier("scalevacuum", "scale_vacuum_void"), SCALE_VACUUM_VOID);
 		Registry.register(Registry.ITEM, new Identifier("scalevacuum", "ancient_chorus_fruit"), ANCIENT_CHORUS_FRUIT);
 		Registry.register(Registry.ITEM, new Identifier("scalevacuum", "dragon_scale"), DRAGON_SCALE);
+
+		Registry.register(Registry.ITEM, new Identifier("scalevacuum", "ender_purifier"), ENDER_PURIFIER);
+		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
+			return 0x9E5EFF;
+		}, ENDER_PURIFIER);
 	}
 }
