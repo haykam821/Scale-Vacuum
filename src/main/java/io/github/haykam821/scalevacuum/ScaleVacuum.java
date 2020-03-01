@@ -2,6 +2,8 @@ package io.github.haykam821.scalevacuum;
 
 import java.util.Random;
 
+import com.google.common.collect.Maps;
+
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Blocks;
@@ -19,7 +21,7 @@ import net.minecraft.world.gen.chunk.FlatChunkGeneratorConfig;
 import net.minecraft.world.gen.chunk.FlatChunkGeneratorLayer;
 
 public class ScaleVacuum extends Dimension {
-	public static final BlockPos SPAWN_POINT = new BlockPos(0, 64, 0);
+	public static final BlockPos SPAWN_POINT = new BlockPos(8.0F, 65, 8.0F);
 
 	public ScaleVacuum(World world, DimensionType type) {
         super(world, type, 0.5F);
@@ -32,6 +34,9 @@ public class ScaleVacuum extends Dimension {
 		// Layers
 		config.getLayers().add(new FlatChunkGeneratorLayer(1, Blocks.BARRIER));
 		config.updateLayerBlocks();
+		
+		// Platform
+		config.getStructures().put("decoration", Maps.newHashMap());
 
 		// Biome
 		config.setBiome(Main.SCALE_VACUUM_VOID);

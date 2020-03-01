@@ -4,7 +4,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.DecoratorConfig;
-import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 
@@ -25,7 +24,7 @@ public class ScaleVacuumVoidBiome extends Biome {
 
 		this.addFeature(
 			GenerationStep.Feature.TOP_LAYER_MODIFICATION,
-			Feature.VOID_START_PLATFORM
+			Main.SCALE_PLATFORM
 				.configure(FeatureConfig.DEFAULT)
 				.createDecoratedFeature(Decorator.NOPE.configure(DecoratorConfig.DEFAULT))
 		);

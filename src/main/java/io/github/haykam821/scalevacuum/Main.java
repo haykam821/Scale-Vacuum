@@ -9,8 +9,16 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.Feature;
 
 public class Main implements ModInitializer {
+	public static final Feature<DefaultFeatureConfig> SCALE_PLATFORM = Registry.register(
+		Registry.FEATURE,
+		new Identifier("scalevacuum", "scale_platform"), 
+		new ScalePlatformFeature(DefaultFeatureConfig::deserialize)
+	);
+
 	public static final Biome SCALE_VACUUM_VOID = new ScaleVacuumVoidBiome();
 	public static FabricDimensionType SCALE_VACUUM = FabricDimensionType.builder()
 			.defaultPlacer((oldEntity, destinationWorld, portalDir, horizontalOffset, verticalOffset) -> {
