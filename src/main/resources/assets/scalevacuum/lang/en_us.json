@@ -1,5 +1,6 @@
 {
 	"item.scalevacuum.ancient_chorus_fruit": "Ancient Chorus Fruit",
 	"item.scalevacuum.dragon_scale": "Dragon Scale",
-	"item.scalevacuum.ender_purifier": "Ender Purifier"
+	"item.scalevacuum.ender_purifier": "Ender Purifier",
+	"block.scalevacuum.scale_bedrock": "Scale Bedrock"
 }

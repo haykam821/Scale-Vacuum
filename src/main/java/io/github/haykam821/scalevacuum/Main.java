@@ -1,12 +1,16 @@
 package io.github.haykam821.scalevacuum;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.dimension.v1.EntityPlacer;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensionType;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.pattern.BlockPattern;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.FoodComponents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -43,6 +47,14 @@ public class Main implements ModInitializer {
 			(int) entity.yaw
 		);
 	};
+
+	public static final Block SCALE_BEDROCK = new Block(
+		FabricBlockSettings.copy(Blocks.BEDROCK).build()
+	);
+	public static final Item SCALE_BEDROCK_ITEM = new BlockItem(
+		SCALE_BEDROCK,
+		new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)
+	);
 
 	public static final Feature<DefaultFeatureConfig> SCALE_PLATFORM = Registry.register(
 		Registry.FEATURE,
@@ -84,5 +96,8 @@ public class Main implements ModInitializer {
 		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
 			return 0x9E5EFF;
 		}, ENDER_PURIFIER);
+
+		Registry.register(Registry.BLOCK, new Identifier("scalevacuum", "scale_bedrock"), SCALE_BEDROCK);
+		Registry.register(Registry.ITEM, new Identifier("scalevacuum", "scale_bedrock"), SCALE_BEDROCK_ITEM);
 	}
 }
