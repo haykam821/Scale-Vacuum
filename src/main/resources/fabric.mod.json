@@ -1,0 +1,25 @@
+{
+	"schemaVersion": 1,
+	"id": "scalevacuum",
+	"version": "${version}",
+	"name": "Scale Vacuum",
+	"description": "Adds a customizable void dimension for survival.",
+	"authors": [
+		"haykam821"
+	],
+	"contact": {
+		"homepage": "https://github.com/haykam821/Scale-Vacuum#readme",
+		"issues": "https://github.com/haykam821/Scale-Vacuum/issues"
+	},
+	"license": "MIT",
+	"icon": "assets/scalevacuum/icon.png",
+	"entrypoints": {
+		"main": [
+			"io.github.haykam821.scalevacuum.Main"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.4.0",
+		"fabric": "*"
+	}
+}
