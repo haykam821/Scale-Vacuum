@@ -58,10 +58,15 @@ public class Main implements ModInitializer {
 		.group(ItemGroup.MATERIALS)
 		.food(FoodComponents.CHORUS_FRUIT)
 	);
+  	public static final Item DRAGON_SCALE = new Item(
+		new Item.Settings()
+		.group(ItemGroup.MATERIALS)
+	);
 
 	@Override
 	public void onInitialize() {
 		Registry.register(Registry.BIOME, new Identifier("scalevacuum", "scale_vacuum_void"), SCALE_VACUUM_VOID);
 		Registry.register(Registry.ITEM, new Identifier("scalevacuum", "ancient_chorus_fruit"), ANCIENT_CHORUS_FRUIT);
+		Registry.register(Registry.ITEM, new Identifier("scalevacuum", "dragon_scale"), DRAGON_SCALE);
 	}
 }
