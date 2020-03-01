@@ -23,12 +23,13 @@ import net.minecraft.world.gen.feature.Feature;
 public class Main implements ModInitializer {
 	public static EntityPlacer OVERWORLD_SURFACE_PLACER = (Entity entity, ServerWorld destination, Direction portalDir, double horizontalOffset, double verticalOffset) -> {
 		BlockPos spawnPos = destination.getSpawnPos();
-		if (entity instanceof PlayerEntity) {
+		if (entity instanceof PlayerEntity && ((PlayerEntity) entity).getSpawnPosition() != null) {
 			spawnPos = ((PlayerEntity) entity).getSpawnPosition();
 		}
 
+		BlockPos topPos = destination.getTopPosition(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, spawnPos);
 		return new BlockPattern.TeleportTarget(
-			new Vec3d(destination.getTopPosition(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, spawnPos)),
+			new Vec3d(topPos),
 			entity.getVelocity(),
 			(int) entity.yaw
 		);
