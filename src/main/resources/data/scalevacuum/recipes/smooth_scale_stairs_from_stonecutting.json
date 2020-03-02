@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:stonecutting",
+	"ingredient": {
+		"item": "scalevacuum:smooth_scale_block"
+	},
+	"result": "scalevacuum:smooth_scale_stairs",
+	"count": 1
+}
