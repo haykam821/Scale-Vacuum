@@ -1,0 +1,11 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [{
+		"item": "minecraft:nether_star"
+	}, {
+		"item": "minecraft:chorus_fruit"
+	}],
+	"result": {
+		"item": "scalevacuum:ancient_chorus_fruit"
+	}
+}
