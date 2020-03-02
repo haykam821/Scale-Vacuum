@@ -1,0 +1,6 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"all": "scalevacuum:block/smooth_scale_block"
+	}
+}

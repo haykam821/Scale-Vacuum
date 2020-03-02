@@ -60,6 +60,9 @@ public class Main implements ModInitializer {
 	public static final Block SCALE_STAIRS = new ScaleStairsBlock(SCALE_BLOCK);
 	public static final Item SCALE_STAIRS_ITEM = new BlockItem(SCALE_STAIRS, buildingBlockItem);
 
+	public static final Block SMOOTH_SCALE_BLOCK = new Block(FabricBlockSettings.copy(SCALE_BLOCK).build());
+	public static final Item SMOOTH_SCALE_BLOCK_ITEM = new BlockItem(SMOOTH_SCALE_BLOCK, buildingBlockItem);
+
 	public static final Feature<DefaultFeatureConfig> SCALE_PLATFORM = Registry.register(
 		Registry.FEATURE,
 		new Identifier("scalevacuum", "scale_platform"), 
@@ -109,5 +112,8 @@ public class Main implements ModInitializer {
 
 		Registry.register(Registry.BLOCK, new Identifier("scalevacuum", "scale_stairs"), SCALE_STAIRS);
 		Registry.register(Registry.ITEM, new Identifier("scalevacuum", "scale_stairs"), SCALE_STAIRS_ITEM);
+
+		Registry.register(Registry.BLOCK, new Identifier("scalevacuum", "smooth_scale_block"), SMOOTH_SCALE_BLOCK);
+		Registry.register(Registry.ITEM, new Identifier("scalevacuum", "smooth_scale_block"), SMOOTH_SCALE_BLOCK_ITEM);
 	}
 }
