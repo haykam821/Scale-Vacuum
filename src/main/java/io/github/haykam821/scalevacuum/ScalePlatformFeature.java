@@ -16,14 +16,28 @@ import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 
 public class ScalePlatformFeature extends Feature<DefaultFeatureConfig> {
-	public static final BlockState PLATFORM_BLOCK = Main.SCALE_BLOCK.getDefaultState();
+	public static final BlockState CORNER_BLOCK = Blocks.AIR.getDefaultState();
+	public static final BlockState BORDER_BLOCK = Main.SMOOTH_SCALE_BLOCK.getDefaultState();
 	public static final BlockState CENTER_BLOCK = Main.SCALE_BEDROCK.getDefaultState();
+	public static final BlockState PLATFORM_BLOCK = Main.SCALE_BLOCK.getDefaultState();
 
 	public static final BlockPos PLATFORM_CENTER_POS = new BlockPos(8, 64, 8);
     public static final ChunkPos PLATFORM_CENTER_CHUNK_POS = new ChunkPos(PLATFORM_CENTER_POS);
 
 	public ScalePlatformFeature(Function<Dynamic<?>, ? extends DefaultFeatureConfig> config) {
 		super(config);
+	}
+
+	private boolean shouldGenerateCorner(int relativeX, int relativeZ) {
+		return this.shouldGenerateBorder(relativeX, relativeZ) && (relativeX + relativeZ) % 15 == 0;
+	}
+
+	private boolean shouldGenerateBorder(int relativeX, int relativeZ) {
+		return relativeX == 0 || relativeZ == 0 || relativeX == 15 || relativeZ == 15;
+	}
+
+	private boolean shouldGenerateCenter(int relativeX, int relativeZ) {
+		return (relativeX == 7 || relativeX == 8) && (relativeZ == 7 || relativeZ == 8);
 	}
  
 	@Override
@@ -38,7 +52,14 @@ public class ScalePlatformFeature extends Feature<DefaultFeatureConfig> {
 			for (int j = chunkPos.getStartX(); j <= chunkPos.getEndX(); j++) {
 				mutable.set(j, PLATFORM_CENTER_POS.getY(), i);
 
-				if ((i == 7 || i == 8) && (j == 7 || j == 8)) {
+				int relativeX = i - chunkPos.getStartX();
+				int relativeZ = j - chunkPos.getStartZ();
+
+				if (this.shouldGenerateCorner(relativeX, relativeZ)) {
+					world.setBlockState(mutable, CORNER_BLOCK, 2);
+				} else if (this.shouldGenerateBorder(relativeX, relativeZ)) {
+					world.setBlockState(mutable, BORDER_BLOCK, 2);
+				} else if (this.shouldGenerateCenter(relativeX, relativeZ)) {
 					world.setBlockState(mutable, CENTER_BLOCK, 2);
 				} else {
 					world.setBlockState(mutable, PLATFORM_BLOCK, 2);
