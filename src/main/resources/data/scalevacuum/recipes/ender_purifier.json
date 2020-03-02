@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" s ",
+		"ses",
+		" s "
+	],
+	"key": {
+		"s": {
+			"item": "scalevacuum:dragon_scale"
+		},
+		"e": {
+			"item": "minecraft:ender_eye"
+		}
+	},
+	"result": {
+		"item": "scalevacuum:ender_purifier"
+	}
+}

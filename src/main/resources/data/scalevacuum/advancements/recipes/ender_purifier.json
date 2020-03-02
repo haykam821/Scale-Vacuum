@@ -1,0 +1,30 @@
+{
+	"parent": "minecraft:recipes/root",
+	"rewards": {
+		"recipes": [
+			"scalevacuum:ender_purifier"
+		]
+	},
+	"criteria": {
+		"has_dragon_scale": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [{
+					"item": "scalevacuum:dragon_scale"
+				}]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "scalevacuum:ender_purifier"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_dragon_scale",
+			"has_the_recipe"
+		]
+	]
+}
