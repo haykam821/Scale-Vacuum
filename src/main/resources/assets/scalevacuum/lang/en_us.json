@@ -4,6 +4,7 @@
 	"item.scalevacuum.ender_purifier": "Ender Purifier",
 	"block.scalevacuum.scale_bedrock": "Scale Bedrock",
 	"block.scalevacuum.scale_block": "Scale Block",
+	"block.scalevacuum.scale_slab": "Scale Slab",
 	"block.scalevacuum.scale_stairs": "Scale Stairs",
 	"block.scalevacuum.smooth_scale_block": "Smooth Scale Block",
 	"block.scalevacuum.smooth_scale_stairs": "Smooth Scale Stairs"
