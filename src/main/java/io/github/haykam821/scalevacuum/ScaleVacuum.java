@@ -51,10 +51,6 @@ public class ScaleVacuum extends Dimension {
 	@Override
 	public ChunkGenerator<?> createChunkGenerator() {
 		FlatChunkGeneratorConfig config = ChunkGeneratorType.FLAT.createSettings();
-
-		// Layers
-		config.getLayers().add(new FlatChunkGeneratorLayer(1, Blocks.BARRIER));
-		config.updateLayerBlocks();
 		
 		// Platform
 		config.getStructures().put("decoration", Maps.newHashMap());
