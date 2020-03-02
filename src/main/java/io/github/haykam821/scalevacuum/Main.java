@@ -9,6 +9,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.StairsBlock;
+import net.minecraft.block.WallBlock;
 import net.minecraft.block.pattern.BlockPattern;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -63,6 +64,12 @@ public class Main implements ModInitializer {
 
 	public static final Block SCALE_SLAB = new SlabBlock(FabricBlockSettings.copy(SCALE_BLOCK).build());
 	public static final Item SCALE_SLAB_ITEM = new BlockItem(SCALE_SLAB, buildingBlockItem);
+
+	public static final Block SCALE_WALL = new WallBlock(FabricBlockSettings.copy(SCALE_BLOCK).build());
+	public static final Item SCALE_WALL_ITEM = new BlockItem(
+		SCALE_WALL, 
+		new Item.Settings().group(ItemGroup.DECORATIONS)
+	);
 
 	public static final Block SMOOTH_SCALE_BLOCK = new Block(FabricBlockSettings.copy(SCALE_BLOCK).build());
 	public static final Item SMOOTH_SCALE_BLOCK_ITEM = new BlockItem(SMOOTH_SCALE_BLOCK, buildingBlockItem);
@@ -125,6 +132,9 @@ public class Main implements ModInitializer {
 
 		Registry.register(Registry.BLOCK, new Identifier("scalevacuum", "scale_stairs"), SCALE_STAIRS);
 		Registry.register(Registry.ITEM, new Identifier("scalevacuum", "scale_stairs"), SCALE_STAIRS_ITEM);
+
+		Registry.register(Registry.BLOCK, new Identifier("scalevacuum", "scale_wall"), SCALE_WALL);
+		Registry.register(Registry.ITEM, new Identifier("scalevacuum", "scale_wall"), SCALE_WALL_ITEM);
 
 		Registry.register(Registry.BLOCK, new Identifier("scalevacuum", "smooth_scale_block"), SMOOTH_SCALE_BLOCK);
 		Registry.register(Registry.ITEM, new Identifier("scalevacuum", "smooth_scale_block"), SMOOTH_SCALE_BLOCK_ITEM);
