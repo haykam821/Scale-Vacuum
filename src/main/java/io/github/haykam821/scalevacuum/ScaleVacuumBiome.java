@@ -7,8 +7,8 @@ import net.minecraft.world.gen.decorator.DecoratorConfig;
 import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 
-public class ScaleVacuumVoidBiome extends Biome {
-	public ScaleVacuumVoidBiome() {
+public class ScaleVacuumBiome extends Biome {
+	public ScaleVacuumBiome() {
 		super(new Biome.Settings()
 			.configureSurfaceBuilder(SurfaceBuilder.NOPE, SurfaceBuilder.STONE_CONFIG)
 			.precipitation(Biome.Precipitation.NONE)

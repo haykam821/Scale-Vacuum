@@ -86,7 +86,7 @@ public class Main implements ModInitializer {
 		new ScalePlatformFeature(DefaultFeatureConfig::deserialize)
 	);
 
-	public static final Biome SCALE_VACUUM_VOID = new ScaleVacuumVoidBiome();
+	public static final Biome SCALE_VACUUM_BIOME = new ScaleVacuumBiome();
 	public static FabricDimensionType SCALE_VACUUM = FabricDimensionType.builder()
 			.defaultPlacer(SCALE_VACUUM_PLACER)
 			.factory(ScaleVacuum::new)
@@ -112,7 +112,7 @@ public class Main implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		Registry.register(Registry.BIOME, new Identifier("scalevacuum", "scale_vacuum_void"), SCALE_VACUUM_VOID);
+		Registry.register(Registry.BIOME, new Identifier("scalevacuum", "scale_vacuum"), SCALE_VACUUM_BIOME);
 		Registry.register(Registry.ITEM, new Identifier("scalevacuum", "ancient_chorus_fruit"), ANCIENT_CHORUS_FRUIT);
 		Registry.register(Registry.ITEM, new Identifier("scalevacuum", "dragon_scale"), DRAGON_SCALE);
 

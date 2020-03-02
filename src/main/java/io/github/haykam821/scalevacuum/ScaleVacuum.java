@@ -60,10 +60,10 @@ public class ScaleVacuum extends Dimension {
 		config.getStructures().put("decoration", Maps.newHashMap());
 
 		// Biome
-		config.setBiome(Main.SCALE_VACUUM_VOID);
+		config.setBiome(Main.SCALE_VACUUM_BIOME);
 		FixedBiomeSourceConfig biomeConfig = BiomeSourceType.FIXED
 			.getConfig(world.getLevelProperties())
-			.setBiome(Main.SCALE_VACUUM_VOID);
+			.setBiome(Main.SCALE_VACUUM_BIOME);
 
 		return ChunkGeneratorType.FLAT.create(world, BiomeSourceType.FIXED.applyConfig(biomeConfig), config);
 	}
