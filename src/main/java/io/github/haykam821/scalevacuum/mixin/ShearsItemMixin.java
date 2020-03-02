@@ -30,12 +30,12 @@ public abstract class ShearsItemMixin {
 				pos.getX() + 0.5D,
 				pos.getY() + 1.0D,
 				pos.getZ() + 0.5D,
-				new ItemStack(Main.DRAGON_SCALE, world.random.nextInt(2) + 1)
+				new ItemStack(Main.DRAGON_SCALE, 1)
 			);
 			itemEntity.setVelocity(0.0D, 0.2D, 0.0D);
 			world.spawnEntity(itemEntity);
 
-			context.getStack().damage(1, context.getPlayer(), (Consumer<LivingEntity>) (LivingEntity entity) -> {
+			context.getStack().damage(4, context.getPlayer(), (Consumer<LivingEntity>) (LivingEntity entity) -> {
 				entity.sendToolBreakStatus(context.getHand());
 			});
 			context.getPlayer().playSound(SoundEvents.ENTITY_SHEEP_SHEAR, 1.0F, 1.0F);
