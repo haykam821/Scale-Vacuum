@@ -1,0 +1,13 @@
+{
+	"type": "minecraft:block",
+	"pools": [{
+		"rolls": 1,
+		"entries": [{
+			"type": "minecraft:item",
+			"name": "scalevacuum:smooth_scale_slab"
+		}],
+		"conditions": [{
+			"condition": "minecraft:survives_explosion"
+		}]
+	}]
+}

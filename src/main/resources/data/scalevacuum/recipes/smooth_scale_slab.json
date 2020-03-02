@@ -1,0 +1,15 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"SSS"
+	],
+	"key": {
+		"S": {
+			"item": "scalevacuum:smooth_scale_block"
+		}
+	},
+	"result": {
+		"item": "scalevacuum:smooth_scale_slab",
+		"count": 6
+	}
+}

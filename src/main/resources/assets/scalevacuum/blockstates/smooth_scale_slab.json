@@ -1,0 +1,13 @@
+{
+	"variants": {
+		"type=bottom": {
+			"model": "scalevacuum:block/smooth_scale_slab"
+		},
+		"type=top": {
+			"model": "scalevacuum:block/smooth_scale_slab_top"
+		},
+		"type=double": {
+			"model": "scalevacuum:block/smooth_scale_block"
+		}
+	}
+}
