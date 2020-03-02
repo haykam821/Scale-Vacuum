@@ -1,0 +1,8 @@
+{
+	"parent": "block/stairs",
+	"textures": {
+		"bottom": "scalevacuum:block/scale_block",
+		"top": "scalevacuum:block/scale_block",
+		"side": "scalevacuum:block/scale_block"
+	}
+}

@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.dimension.v1.EntityPlacer;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensionType;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.StairsBlock;
 import net.minecraft.block.pattern.BlockPattern;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -48,11 +49,16 @@ public class Main implements ModInitializer {
 		);
 	};
 
+	private static final Item.Settings buildingBlockItem = new Item.Settings().group(ItemGroup.BUILDING_BLOCKS);
+
 	public static final Block SCALE_BEDROCK = new Block(FabricBlockSettings.copy(Blocks.BEDROCK).build());
-	public static final Item SCALE_BEDROCK_ITEM = new BlockItem(SCALE_BEDROCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SCALE_BEDROCK_ITEM = new BlockItem(SCALE_BEDROCK, buildingBlockItem);
 
 	public static final Block SCALE_BLOCK = new Block(FabricBlockSettings.copy(Blocks.NETHER_BRICKS).build());
-	public static final Item SCALE_BLOCK_ITEM = new BlockItem(SCALE_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SCALE_BLOCK_ITEM = new BlockItem(SCALE_BLOCK, buildingBlockItem);
+
+	public static final Block SCALE_STAIRS = new ScaleStairsBlock(SCALE_BLOCK);
+	public static final Item SCALE_STAIRS_ITEM = new BlockItem(SCALE_STAIRS, buildingBlockItem);
 
 	public static final Feature<DefaultFeatureConfig> SCALE_PLATFORM = Registry.register(
 		Registry.FEATURE,
@@ -100,5 +106,8 @@ public class Main implements ModInitializer {
 		
 		Registry.register(Registry.BLOCK, new Identifier("scalevacuum", "scale_block"), SCALE_BLOCK);
 		Registry.register(Registry.ITEM, new Identifier("scalevacuum", "scale_block"), SCALE_BLOCK_ITEM);
+
+		Registry.register(Registry.BLOCK, new Identifier("scalevacuum", "scale_stairs"), SCALE_STAIRS);
+		Registry.register(Registry.ITEM, new Identifier("scalevacuum", "scale_stairs"), SCALE_STAIRS_ITEM);
 	}
 }

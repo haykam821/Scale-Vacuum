@@ -3,5 +3,6 @@
 	"item.scalevacuum.dragon_scale": "Dragon Scale",
 	"item.scalevacuum.ender_purifier": "Ender Purifier",
 	"block.scalevacuum.scale_bedrock": "Scale Bedrock",
-	"block.scalevacuum.scale_block": "Scale Block"
+	"block.scalevacuum.scale_block": "Scale Block",
+	"block.scalevacuum.scale_stairs": "Scale Stairs"
 }
