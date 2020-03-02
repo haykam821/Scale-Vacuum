@@ -16,7 +16,7 @@ import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 
 public class ScalePlatformFeature extends Feature<DefaultFeatureConfig> {
-	public static final BlockState PLATFORM_BLOCK = Blocks.OBSIDIAN.getDefaultState();
+	public static final BlockState PLATFORM_BLOCK = Main.SCALE_BLOCK.getDefaultState();
 	public static final BlockState CENTER_BLOCK = Main.SCALE_BEDROCK.getDefaultState();
 
 	public static final BlockPos PLATFORM_CENTER_POS = new BlockPos(8, 64, 8);

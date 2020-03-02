@@ -48,13 +48,11 @@ public class Main implements ModInitializer {
 		);
 	};
 
-	public static final Block SCALE_BEDROCK = new Block(
-		FabricBlockSettings.copy(Blocks.BEDROCK).build()
-	);
-	public static final Item SCALE_BEDROCK_ITEM = new BlockItem(
-		SCALE_BEDROCK,
-		new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)
-	);
+	public static final Block SCALE_BEDROCK = new Block(FabricBlockSettings.copy(Blocks.BEDROCK).build());
+	public static final Item SCALE_BEDROCK_ITEM = new BlockItem(SCALE_BEDROCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
+	public static final Block SCALE_BLOCK = new Block(FabricBlockSettings.copy(Blocks.NETHER_BRICKS).build());
+	public static final Item SCALE_BLOCK_ITEM = new BlockItem(SCALE_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
 	public static final Feature<DefaultFeatureConfig> SCALE_PLATFORM = Registry.register(
 		Registry.FEATURE,
@@ -99,5 +97,8 @@ public class Main implements ModInitializer {
 
 		Registry.register(Registry.BLOCK, new Identifier("scalevacuum", "scale_bedrock"), SCALE_BEDROCK);
 		Registry.register(Registry.ITEM, new Identifier("scalevacuum", "scale_bedrock"), SCALE_BEDROCK_ITEM);
+		
+		Registry.register(Registry.BLOCK, new Identifier("scalevacuum", "scale_block"), SCALE_BLOCK);
+		Registry.register(Registry.ITEM, new Identifier("scalevacuum", "scale_block"), SCALE_BLOCK_ITEM);
 	}
 }

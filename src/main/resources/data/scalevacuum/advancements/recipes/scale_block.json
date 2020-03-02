@@ -1,0 +1,30 @@
+{
+	"parent": "minecraft:recipes/root",
+	"rewards": {
+		"recipes": [
+			"scalevacuum:scale_block"
+		]
+	},
+	"criteria": {
+		"has_dragon_scale": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [{
+					"item": "scalevacuum:dragon_scale"
+				}]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "scalevacuum:scale_block"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_dragon_scale",
+			"has_the_recipe"
+		]
+	]
+}
