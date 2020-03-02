@@ -1,5 +1,6 @@
 {
 	"values": [
-		"scalevacuum:scale_slab"
+		"scalevacuum:scale_slab",
+		"scalevacuum:smooth_scale_slab"
 	]
 }

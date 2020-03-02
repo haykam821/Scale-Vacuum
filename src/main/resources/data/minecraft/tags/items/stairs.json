@@ -1,5 +1,6 @@
 {
 	"values": [
-		"scalevacuum:scale_stairs"
+		"scalevacuum:scale_stairs",
+		"scalevacuum:smooth_scale_stairs"
 	]
 }
