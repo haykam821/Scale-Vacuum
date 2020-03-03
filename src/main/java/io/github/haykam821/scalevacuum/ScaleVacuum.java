@@ -6,7 +6,6 @@ import com.google.common.collect.Maps;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.Blocks;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -20,7 +19,6 @@ import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.ChunkGeneratorType;
 import net.minecraft.world.gen.chunk.FlatChunkGeneratorConfig;
-import net.minecraft.world.gen.chunk.FlatChunkGeneratorLayer;
 
 public class ScaleVacuum extends Dimension {
 	public static final BlockPos SPAWN_POINT = new BlockPos(8.0F, 65, 8.0F);
