@@ -22,7 +22,7 @@ public abstract class LivingEntityMixin extends Entity {
 		super(type, world);
 	}
 
-	@Inject(method = "getMaximumHealth", at = @At("RETURN"), cancellable = true, remap = false)
+	@Inject(method = "getMaximumHealth", at = @At("RETURN"), cancellable = true)
 	void getMaximumHealthInScaleVacuum(CallbackInfoReturnable<Float> ci) {
 		if ((Object) this instanceof PlayerEntity && this.world.dimension instanceof ScaleVacuum && !this.world.isClient) {
 			int purifiedLevel = ((ScaleVacuum) this.world.dimension).getPurifiedLevel();
