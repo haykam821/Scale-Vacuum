@@ -1,7 +1,7 @@
 package io.github.haykam821.scalevacuum;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.dimension.v1.EntityPlacer;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensionType;
@@ -91,15 +91,15 @@ public class Main implements ModInitializer {
 	private static final Item.Settings DECORATION_BLOCK_ITEM_SETTINGS = new Item.Settings().group(ItemGroup.DECORATIONS);
 
 	private static final Identifier SCALE_BEDROCK_ID = new Identifier(MOD_ID, "scale_bedrock");
-	public static final Block SCALE_BEDROCK = new Block(FabricBlockSettings.copy(Blocks.BEDROCK).build());
+	public static final Block SCALE_BEDROCK = new Block(FabricBlockSettings.copy(Blocks.BEDROCK));
 	public static final Item SCALE_BEDROCK_ITEM = new BlockItem(SCALE_BEDROCK, BUILDING_BLOCK_ITEM_SETTINGS);
 
 	private static final Identifier SCALE_BLOCK_ID = new Identifier(MOD_ID, "scale_block");
-	public static final Block SCALE_BLOCK = new Block(FabricBlockSettings.copy(Blocks.NETHER_BRICKS).build());
+	public static final Block SCALE_BLOCK = new Block(FabricBlockSettings.copy(Blocks.NETHER_BRICKS));
 	public static final Item SCALE_BLOCK_ITEM = new BlockItem(SCALE_BLOCK, BUILDING_BLOCK_ITEM_SETTINGS);
 
 	private static final Identifier SCALE_SLAB_ID = new Identifier(MOD_ID, "scale_slab");
-	public static final Block SCALE_SLAB = new SlabBlock(FabricBlockSettings.copy(SCALE_BLOCK).build());
+	public static final Block SCALE_SLAB = new SlabBlock(FabricBlockSettings.copy(SCALE_BLOCK));
 	public static final Item SCALE_SLAB_ITEM = new BlockItem(SCALE_SLAB, BUILDING_BLOCK_ITEM_SETTINGS);
 	
 	private static final Identifier SCALE_STAIRS_ID = new Identifier(MOD_ID, "scale_stairs");
@@ -107,15 +107,15 @@ public class Main implements ModInitializer {
 	public static final Item SCALE_STAIRS_ITEM = new BlockItem(SCALE_STAIRS, BUILDING_BLOCK_ITEM_SETTINGS);
 
 	private static final Identifier SCALE_WALL_ID = new Identifier(MOD_ID, "scale_wall");
-	public static final Block SCALE_WALL = new WallBlock(FabricBlockSettings.copy(SCALE_BLOCK).build());
+	public static final Block SCALE_WALL = new WallBlock(FabricBlockSettings.copy(SCALE_BLOCK));
 	public static final Item SCALE_WALL_ITEM = new BlockItem(SCALE_WALL, DECORATION_BLOCK_ITEM_SETTINGS);
 
 	private static final Identifier SMOOTH_SCALE_BLOCK_ID = new Identifier(MOD_ID, "smooth_scale_block");
-	public static final Block SMOOTH_SCALE_BLOCK = new Block(FabricBlockSettings.copy(SCALE_BLOCK).build());
+	public static final Block SMOOTH_SCALE_BLOCK = new Block(FabricBlockSettings.copy(SCALE_BLOCK));
 	public static final Item SMOOTH_SCALE_BLOCK_ITEM = new BlockItem(SMOOTH_SCALE_BLOCK, BUILDING_BLOCK_ITEM_SETTINGS);
 
 	private static final Identifier SMOOTH_SCALE_SLAB_ID = new Identifier(MOD_ID, "smooth_scale_slab");
-	public static final Block SMOOTH_SCALE_SLAB = new SlabBlock(FabricBlockSettings.copy(SMOOTH_SCALE_BLOCK).build());
+	public static final Block SMOOTH_SCALE_SLAB = new SlabBlock(FabricBlockSettings.copy(SMOOTH_SCALE_BLOCK));
 	public static final Item SMOOTH_SCALE_SLAB_ITEM = new BlockItem(SMOOTH_SCALE_SLAB, BUILDING_BLOCK_ITEM_SETTINGS);
 
 	private static final Identifier SMOOTH_SCALE_STAIRS_ID = new Identifier(MOD_ID, "smooth_scale_stairs");
