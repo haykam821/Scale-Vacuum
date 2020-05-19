@@ -1,10 +1,9 @@
 package io.github.haykam821.scalevacuum;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.dimension.v1.EntityPlacer;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensionType;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
@@ -17,6 +16,7 @@ import net.minecraft.item.FoodComponents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.math.BlockPos;
@@ -122,6 +122,10 @@ public class Main implements ModInitializer {
 		.factory(ScaleVacuum::new)
 		.buildAndRegister(SCALE_VACUUM_ID);
 
+	// Sound events
+	private static final Identifier BLOCK_DRAGON_EGG_SHEAR_ID = new Identifier(MOD_ID, "block.dragon_egg.shear");
+	public static final SoundEvent BLOCK_DRAGON_EGG_SHEAR = new SoundEvent(BLOCK_DRAGON_EGG_SHEAR_ID);
+
 	@Override
 	public void onInitialize() {
 		// Items
@@ -157,5 +161,8 @@ public class Main implements ModInitializer {
 		// Dimension
 		Registry.register(Registry.FEATURE, SCALE_PLATFORM_ID, SCALE_PLATFORM);
 		Registry.register(Registry.BIOME, SCALE_VACUUM_ID, SCALE_VACUUM_BIOME);
+		
+		// Sound events
+		Registry.register(Registry.SOUND_EVENT, BLOCK_DRAGON_EGG_SHEAR_ID, BLOCK_DRAGON_EGG_SHEAR);
 	}
 }

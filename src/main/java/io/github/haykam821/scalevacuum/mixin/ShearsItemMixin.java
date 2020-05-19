@@ -38,7 +38,7 @@ public abstract class ShearsItemMixin {
 			context.getStack().damage(4, context.getPlayer(), (Consumer<LivingEntity>) (LivingEntity entity) -> {
 				entity.sendToolBreakStatus(context.getHand());
 			});
-			context.getPlayer().playSound(SoundEvents.ENTITY_SHEEP_SHEAR, 1.0F, 1.0F);
+			context.getPlayer().playSound(Main.BLOCK_DRAGON_EGG_SHEAR, 1.0F, 1.0F);
 
 			return ActionResult.CONSUME;
 		}
