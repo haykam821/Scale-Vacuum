@@ -16,6 +16,9 @@
 	"entrypoints": {
 		"main": [
 			"io.github.haykam821.scalevacuum.Main"
+		],
+		"client": [
+			"io.github.haykam821.scalevacuum.ClientMain"
 		]
 	},
 	"mixins": [

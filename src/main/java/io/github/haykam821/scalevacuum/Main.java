@@ -31,38 +31,6 @@ import net.minecraft.world.gen.feature.Feature;
 public class Main implements ModInitializer {
 	private static final String MOD_ID = "scalevacuum";
 
-	// Dimension
-	private static final Identifier SCALE_VACUUM_ID = new Identifier(MOD_ID, "scale_vacuum");
-	public static final Biome SCALE_VACUUM_BIOME = new ScaleVacuumBiome();
-
-	private static final Identifier SCALE_PLATFORM_ID = new Identifier(MOD_ID, "scale_platform");
-	public static final Feature<DefaultFeatureConfig> SCALE_PLATFORM = new ScalePlatformFeature(DefaultFeatureConfig::deserialize);
-
-	public static EntityPlacer OVERWORLD_SURFACE_PLACER = (Entity entity, ServerWorld destination, Direction portalDir, double horizontalOffset, double verticalOffset) -> {
-		BlockPos spawnPos = destination.getSpawnPos();
-		if (entity instanceof PlayerEntity) {
-			PlayerEntity player = (PlayerEntity) entity;
-			if (player.getSpawnPosition() != null) {
-				spawnPos = player.getSpawnPosition();
-			}
-		}
-
-		BlockPos topPos = destination.getTopPosition(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, spawnPos);
-		return new BlockPattern.TeleportTarget(new Vec3d(topPos), entity.getVelocity(), (int) entity.yaw);
-	};
-	public static EntityPlacer SCALE_VACUUM_PLACER = (Entity entity, ServerWorld destination, Direction portalDir, double horizontalOffset, double verticalOffset) -> {
-		return new BlockPattern.TeleportTarget(
-			new Vec3d(destination.getForcedSpawnPoint()),
-			entity.getVelocity(),
-			(int) entity.yaw
-		);
-	};
-
-	public static FabricDimensionType SCALE_VACUUM = FabricDimensionType.builder()
-		.defaultPlacer(SCALE_VACUUM_PLACER)
-		.factory(ScaleVacuum::new)
-		.buildAndRegister(SCALE_VACUUM_ID);
-
 	// Items
 	private static final Identifier ANCIENT_CHORUS_FRUIT_ID = new Identifier(MOD_ID, "ancient_chorus_fruit");
   	public static final Item ANCIENT_CHORUS_FRUIT = new AncientChorusFruitItem(
@@ -122,20 +90,44 @@ public class Main implements ModInitializer {
 	public static final Block SMOOTH_SCALE_STAIRS = new ScaleStairsBlock(SMOOTH_SCALE_BLOCK);
 	public static final Item SMOOTH_SCALE_STAIRS_ITEM = new BlockItem(SMOOTH_SCALE_STAIRS, BUILDING_BLOCK_ITEM_SETTINGS);
 
+	// Dimension
+	private static final Identifier SCALE_PLATFORM_ID = new Identifier(MOD_ID, "scale_platform");
+	public static final Feature<DefaultFeatureConfig> SCALE_PLATFORM = new ScalePlatformFeature(DefaultFeatureConfig::deserialize);
+
+	private static final Identifier SCALE_VACUUM_ID = new Identifier(MOD_ID, "scale_vacuum");
+	public static final Biome SCALE_VACUUM_BIOME = new ScaleVacuumBiome();
+
+	public static EntityPlacer OVERWORLD_SURFACE_PLACER = (Entity entity, ServerWorld destination, Direction portalDir, double horizontalOffset, double verticalOffset) -> {
+		BlockPos spawnPos = destination.getSpawnPos();
+		if (entity instanceof PlayerEntity) {
+			PlayerEntity player = (PlayerEntity) entity;
+			if (player.getSpawnPosition() != null) {
+				spawnPos = player.getSpawnPosition();
+			}
+		}
+
+		BlockPos topPos = destination.getTopPosition(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, spawnPos);
+		return new BlockPattern.TeleportTarget(new Vec3d(topPos), entity.getVelocity(), (int) entity.yaw);
+	};
+	public static EntityPlacer SCALE_VACUUM_PLACER = (Entity entity, ServerWorld destination, Direction portalDir, double horizontalOffset, double verticalOffset) -> {
+		return new BlockPattern.TeleportTarget(
+			new Vec3d(destination.getForcedSpawnPoint()),
+			entity.getVelocity(),
+			(int) entity.yaw
+		);
+	};
+
+	public static FabricDimensionType SCALE_VACUUM = FabricDimensionType.builder()
+		.defaultPlacer(SCALE_VACUUM_PLACER)
+		.factory(ScaleVacuum::new)
+		.buildAndRegister(SCALE_VACUUM_ID);
+
 	@Override
 	public void onInitialize() {
-		// Dimension
-		Registry.register(Registry.BIOME, SCALE_VACUUM_ID, SCALE_VACUUM_BIOME);
-		Registry.register(Registry.FEATURE, SCALE_PLATFORM_ID, SCALE_PLATFORM);
-
 		// Items
 		Registry.register(Registry.ITEM, ANCIENT_CHORUS_FRUIT_ID, ANCIENT_CHORUS_FRUIT);
 		Registry.register(Registry.ITEM, DRAGON_SCALE_ID, DRAGON_SCALE);
-
 		Registry.register(Registry.ITEM, ENDER_PURIFIER_ID, ENDER_PURIFIER);
-		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
-			return 0x9E5EFF;
-		}, ENDER_PURIFIER);
 
 		// Blocks
 		Registry.register(Registry.BLOCK, SCALE_BEDROCK_ID, SCALE_BEDROCK);
@@ -161,5 +153,9 @@ public class Main implements ModInitializer {
 
 		Registry.register(Registry.BLOCK, SMOOTH_SCALE_STAIRS_ID, SMOOTH_SCALE_STAIRS);
 		Registry.register(Registry.ITEM, SMOOTH_SCALE_STAIRS_ID, SMOOTH_SCALE_STAIRS_ITEM);
+
+		// Dimension
+		Registry.register(Registry.FEATURE, SCALE_PLATFORM_ID, SCALE_PLATFORM);
+		Registry.register(Registry.BIOME, SCALE_VACUUM_ID, SCALE_VACUUM_BIOME);
 	}
 }
