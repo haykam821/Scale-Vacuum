@@ -1,0 +1,10 @@
+{
+	"generator": {
+		"type": "scalevacuum:scale_vacuum",
+		"biome_source": {
+			"type": "minecraft:fixed",
+			"biome": "scalevacuum:scale_vacuum"
+		}
+	},
+	"type": "scalevacuum:scale_vacuum"
+}

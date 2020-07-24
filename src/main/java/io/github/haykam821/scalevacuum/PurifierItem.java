@@ -2,6 +2,7 @@ package io.github.haykam821.scalevacuum;
 
 import java.util.Iterator;
 
+import io.github.haykam821.scalevacuum.component.PurificationComponent;
 import net.fabricmc.fabric.api.server.PlayerStream;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -9,14 +10,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
-import net.minecraft.world.dimension.Dimension;
 
 public class PurifierItem extends Item {
 	public PurifierItem(Settings settings) {
 		super(settings);
 	}
 
-	public boolean hasEnchantmentGlint(ItemStack itemStack) {
+	public boolean hasGlint(ItemStack itemStack) {
 		return true;
 	}
 
@@ -27,10 +27,9 @@ public class PurifierItem extends Item {
 		}
 
 		// Only works in Scale Vacuum dimension
-		Dimension dimension = world.dimension;
-		if (!(dimension instanceof ScaleVacuum)) return TypedActionResult.pass(handStack);
-		ScaleVacuum scaleVacuum = (ScaleVacuum) world.dimension;
-		int purifiedLevel = scaleVacuum.getPurifiedLevel();
+		if (!Main.isScaleVacuum(world)) return TypedActionResult.pass(handStack);
+		PurificationComponent purification = Main.PURIFICATION.get(world);
+		int purifiedLevel = purification.getPurifiedLevel();
 
 		// Only works if not fully purified
 		if (purifiedLevel == 4) {
@@ -38,7 +37,7 @@ public class PurifierItem extends Item {
 		}
 
 		// Increase purification level
-		scaleVacuum.setPurifiedLevel(purifiedLevel + 1);
+		purification.setPurifiedLevel(purifiedLevel + 1);
 		
 		// Update player health
 		Iterator<PlayerEntity> players = PlayerStream.world(world).iterator();

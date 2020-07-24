@@ -1,5 +1,5 @@
 plugins {
-	id "fabric-loom" version "0.2.7-SNAPSHOT"
+	id "fabric-loom" version "0.4-SNAPSHOT"
 	id "maven-publish"
 }
 
@@ -10,14 +10,19 @@ archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
-minecraft {
-}
-
 repositories {
 	maven {
 		name = "Fabric"
 		url = "https://maven.fabricmc.net/"
 	}
+	maven {
+		name = "Ladysnake Libs"
+		url = "https://dl.bintray.com/ladysnake/libs"
+	}
+    maven {
+        name = "Earthcomputer Mods"
+        url = "https://dl.bintray.com/earthcomputer/mods"
+    }
 	jcenter()
 }
 
@@ -29,6 +34,18 @@ dependencies {
 
 	// Fabric API
 	modImplementation("net.fabricmc.fabric-api:fabric-api:${project.fabric_version}")
+
+	// Cardinal Components
+	modImplementation("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${project.cardinal_components_version}")
+	include("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${project.cardinal_components_version}")
+
+	// Cardinal Components (World)
+	modImplementation("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-world:${project.cardinal_components_version}")
+	include("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-world:${project.cardinal_components_version}")
+
+	// LibStructure
+//	modImplementation("net.earthcomputer:libstructure:${project.libstructure_version}")
+	//include("net.earthcomputer:libstructure:${project.libstructure_version}")
 }
 
 processResources {
