@@ -3,6 +3,7 @@
 	"package": "io.github.haykam821.scalevacuum.mixin",
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [
+		"AbstractFireBlockMixin",
 		"ShearsItemMixin",
 		"LivingEntityMixin"
 	],

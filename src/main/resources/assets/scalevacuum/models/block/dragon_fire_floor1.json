@@ -1,0 +1,6 @@
+{
+	"parent": "minecraft:block/template_fire_floor",
+	"textures": {
+		"fire": "scalevacuum:block/dragon_fire_1"
+	}
+}

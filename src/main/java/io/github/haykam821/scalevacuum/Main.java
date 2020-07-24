@@ -9,8 +9,10 @@ import nerdhub.cardinal.components.api.event.WorldComponentCallback;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.dimension.v1.EntityPlacer;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.tag.TagRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.MaterialColor;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.WallBlock;
 import net.minecraft.block.pattern.BlockPattern;
@@ -23,6 +25,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.math.BlockPos;
@@ -103,6 +106,13 @@ public class Main implements ModInitializer {
 	public static final Block SMOOTH_SCALE_STAIRS = new ScaleStairsBlock(SMOOTH_SCALE_BLOCK);
 	public static final Item SMOOTH_SCALE_STAIRS_ITEM = new BlockItem(SMOOTH_SCALE_STAIRS, BUILDING_BLOCK_ITEM_SETTINGS);
 
+	private static final Identifier DRAGON_FIRE_ID = new Identifier(MOD_ID, "dragon_fire");
+	public static final Block DRAGON_FIRE = new DragonFireBlock(FabricBlockSettings.copyOf(Blocks.FIRE).materialColor(MaterialColor.MAGENTA).lightLevel(state -> 5));
+
+	// Tags
+	private static final Identifier DRAGON_FIRE_BASE_BLOCKS_ID = new Identifier(MOD_ID, "dragon_fire_base_blocks");
+	public static final Tag<Block> DRAGON_FIRE_BASE_BLOCKS = TagRegistry.block(DRAGON_FIRE_BASE_BLOCKS_ID);
+
 	// Dimension
 	private static final Identifier SCALE_PLATFORM_ID = new Identifier(MOD_ID, "scale_platform");
 	private static final Feature<DefaultFeatureConfig> SCALE_PLATFORM = new ScalePlatformFeature(DefaultFeatureConfig.CODEC);
@@ -180,6 +190,8 @@ public class Main implements ModInitializer {
 
 		Registry.register(Registry.BLOCK, SMOOTH_SCALE_STAIRS_ID, SMOOTH_SCALE_STAIRS);
 		Registry.register(Registry.ITEM, SMOOTH_SCALE_STAIRS_ID, SMOOTH_SCALE_STAIRS_ITEM);
+
+		Registry.register(Registry.BLOCK, DRAGON_FIRE_ID, DRAGON_FIRE);
 
 		// Dimension
 		Registry.register(Registry.FEATURE, SCALE_PLATFORM_ID, SCALE_PLATFORM);
