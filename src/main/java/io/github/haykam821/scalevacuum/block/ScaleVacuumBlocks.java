@@ -25,17 +25,14 @@ public enum ScaleVacuumBlocks {
 	SMOOTH_SCALE_STAIRS("smooth_scale_stairs", new ScaleStairsBlock(SMOOTH_SCALE_BLOCK.block), ItemGroup.BUILDING_BLOCKS),
 	DRAGON_FIRE("dragon_fire", new DragonFireBlock(FabricBlockSettings.copyOf(Blocks.FIRE).materialColor(MaterialColor.MAGENTA).lightLevel(state -> 5)), (Item) null);
 
+	private final Identifier id;
 	private final Block block;
+	private final Item item;
 
 	private ScaleVacuumBlocks(String path, Block block, Item item) {
-		Identifier id = new Identifier(Main.MOD_ID, path);
-
+		this.id = new Identifier(Main.MOD_ID, path);
 		this.block = block;
-		Registry.register(Registry.BLOCK, id, block);
-
-		if (item != null) {
-			Registry.register(Registry.ITEM, id, item);
-		}
+		this.item = item;
 	}
 
 	private ScaleVacuumBlocks(String path, Block block, ItemGroup group) {
@@ -48,5 +45,14 @@ public enum ScaleVacuumBlocks {
 
 	public BlockState getDefaultState() {
 		return this.block.getDefaultState();
+	}
+
+	public static void register() {
+		for (ScaleVacuumBlocks block : ScaleVacuumBlocks.values()) {
+			Registry.register(Registry.BLOCK, block.id, block.block);
+			if (block.item != null) {
+				Registry.register(Registry.ITEM, block.id, block.item);
+			}
+		}
 	}
 }

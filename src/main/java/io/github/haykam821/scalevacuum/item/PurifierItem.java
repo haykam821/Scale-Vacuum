@@ -1,7 +1,8 @@
-package io.github.haykam821.scalevacuum;
+package io.github.haykam821.scalevacuum.item;
 
 import java.util.Iterator;
 
+import io.github.haykam821.scalevacuum.Main;
 import io.github.haykam821.scalevacuum.component.PurificationComponent;
 import io.github.haykam821.scalevacuum.component.ScaleVacuumComponents;
 import net.fabricmc.fabric.api.server.PlayerStream;

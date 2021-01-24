@@ -1,6 +1,7 @@
 package io.github.haykam821.scalevacuum;
 
 import io.github.haykam821.scalevacuum.block.ScaleVacuumBlocks;
+import io.github.haykam821.scalevacuum.item.ScaleVacuumItems;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
@@ -11,7 +12,7 @@ public class ClientMain implements ClientModInitializer {
 	public void onInitializeClient() {
 		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
 			return 0x9E5EFF;
-		}, Main.ENDER_PURIFIER);
+		}, ScaleVacuumItems.ENDER_PURIFIER);
 
 		BlockRenderLayerMap.INSTANCE.putBlock(ScaleVacuumBlocks.DRAGON_FIRE.getBlock(), RenderLayer.getCutout());
 	}

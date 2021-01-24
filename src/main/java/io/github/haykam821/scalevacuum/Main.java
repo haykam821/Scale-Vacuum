@@ -2,19 +2,17 @@ package io.github.haykam821.scalevacuum;
 
 import java.util.Optional;
 
+import io.github.haykam821.scalevacuum.block.ScaleVacuumBlocks;
+import io.github.haykam821.scalevacuum.item.ScaleVacuumItems;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.dimension.v1.EntityPlacer;
 import net.minecraft.block.pattern.BlockPattern;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.FoodComponents;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.Rarity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
@@ -33,29 +31,6 @@ import net.minecraft.world.gen.feature.FeatureConfig;
 
 public class Main implements ModInitializer {
 	public static final String MOD_ID = "scalevacuum";
-
-	// Items
-	private static final Identifier ANCIENT_CHORUS_FRUIT_ID = new Identifier(MOD_ID, "ancient_chorus_fruit");
-  	public static final Item ANCIENT_CHORUS_FRUIT = new AncientChorusFruitItem(
-		new Item.Settings()
-		.group(ItemGroup.MATERIALS)
-		.food(FoodComponents.CHORUS_FRUIT)
-	);
-
-	private static final Identifier DRAGON_SCALE_ID = new Identifier(MOD_ID, "dragon_scale");
-  	public static final Item DRAGON_SCALE = new Item(
-		new Item.Settings()
-		.rarity(Rarity.RARE)
-		.group(ItemGroup.MATERIALS)
-	);
-
-	private static final Identifier ENDER_PURIFIER_ID = new Identifier(MOD_ID, "ender_purifier");
-	public static final Item ENDER_PURIFIER = new PurifierItem(
-		new Item.Settings()
-		.rarity(Rarity.UNCOMMON)
-		.group(ItemGroup.MISC)
-		.maxCount(1)
-	);
 
 	// Dimension
 	private static final Identifier SCALE_PLATFORM_ID = new Identifier(MOD_ID, "scale_platform");
@@ -99,10 +74,8 @@ public class Main implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		// Items
-		Registry.register(Registry.ITEM, ANCIENT_CHORUS_FRUIT_ID, ANCIENT_CHORUS_FRUIT);
-		Registry.register(Registry.ITEM, DRAGON_SCALE_ID, DRAGON_SCALE);
-		Registry.register(Registry.ITEM, ENDER_PURIFIER_ID, ENDER_PURIFIER);
+		ScaleVacuumItems.register();
+		ScaleVacuumBlocks.register();
 
 		// Dimension
 		Registry.register(Registry.FEATURE, SCALE_PLATFORM_ID, SCALE_PLATFORM);

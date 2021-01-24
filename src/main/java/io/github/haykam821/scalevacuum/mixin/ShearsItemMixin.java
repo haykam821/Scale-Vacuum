@@ -5,6 +5,7 @@ import java.util.function.Consumer;
 import org.spongepowered.asm.mixin.Mixin;
 
 import io.github.haykam821.scalevacuum.Main;
+import io.github.haykam821.scalevacuum.item.ScaleVacuumItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.ItemEntity;
@@ -29,7 +30,7 @@ public abstract class ShearsItemMixin {
 				pos.getX() + 0.5D,
 				pos.getY() + 1.0D,
 				pos.getZ() + 0.5D,
-				new ItemStack(Main.DRAGON_SCALE, 1)
+				new ItemStack(ScaleVacuumItems.DRAGON_SCALE, 1)
 			);
 			itemEntity.setVelocity(0.0D, 0.2D, 0.0D);
 			world.spawnEntity(itemEntity);

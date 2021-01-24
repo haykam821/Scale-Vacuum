@@ -1,5 +1,6 @@
-package io.github.haykam821.scalevacuum;
+package io.github.haykam821.scalevacuum.item;
 
+import io.github.haykam821.scalevacuum.Main;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
