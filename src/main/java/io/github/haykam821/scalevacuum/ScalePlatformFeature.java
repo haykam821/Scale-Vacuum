@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.mojang.serialization.Codec;
 
+import io.github.haykam821.scalevacuum.block.ScaleVacuumBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -16,9 +17,9 @@ import net.minecraft.world.gen.feature.Feature;
 
 public class ScalePlatformFeature extends Feature<DefaultFeatureConfig> {
 	public static final BlockState CORNER_BLOCK = Blocks.AIR.getDefaultState();
-	public static final BlockState BORDER_BLOCK = Main.SMOOTH_SCALE_BLOCK.getDefaultState();
-	public static final BlockState CENTER_BLOCK = Main.SCALE_BEDROCK.getDefaultState();
-	public static final BlockState PLATFORM_BLOCK = Main.SCALE_BLOCK.getDefaultState();
+	public static final BlockState BORDER_BLOCK = ScaleVacuumBlocks.SMOOTH_SCALE_BLOCK.getDefaultState();
+	public static final BlockState CENTER_BLOCK = ScaleVacuumBlocks.SCALE_BEDROCK.getDefaultState();
+	public static final BlockState PLATFORM_BLOCK = ScaleVacuumBlocks.SCALE_BLOCK.getDefaultState();
 
 	public static final BlockPos PLATFORM_CENTER_POS = new BlockPos(8, 64, 8);
     public static final ChunkPos PLATFORM_CENTER_CHUNK_POS = new ChunkPos(PLATFORM_CENTER_POS);

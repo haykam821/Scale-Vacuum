@@ -1,4 +1,4 @@
-package io.github.haykam821.scalevacuum;
+package io.github.haykam821.scalevacuum.block;
 
 import net.minecraft.block.AbstractFireBlock;
 import net.minecraft.block.Block;
@@ -23,7 +23,7 @@ public class DragonFireBlock extends AbstractFireBlock {
 	}
 
 	public static boolean isDragonFireBase(Block block) {
-		return block.isIn(Main.DRAGON_FIRE_BASE_BLOCKS);
+		return block.isIn(ScaleVacuumBlockTags.DRAGON_FIRE_BASE_BLOCKS);
 	}
 
 	public boolean isFlammable(BlockState state) {

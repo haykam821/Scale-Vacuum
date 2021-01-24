@@ -1,4 +1,4 @@
-package io.github.haykam821.scalevacuum;
+package io.github.haykam821.scalevacuum.block;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
