@@ -3,6 +3,7 @@ package io.github.haykam821.scalevacuum;
 import java.util.Iterator;
 
 import io.github.haykam821.scalevacuum.component.PurificationComponent;
+import io.github.haykam821.scalevacuum.component.ScaleVacuumComponents;
 import net.fabricmc.fabric.api.server.PlayerStream;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -28,7 +29,7 @@ public class PurifierItem extends Item {
 
 		// Only works in Scale Vacuum dimension
 		if (!Main.isScaleVacuum(world)) return TypedActionResult.pass(handStack);
-		PurificationComponent purification = Main.PURIFICATION.get(world);
+		PurificationComponent purification = ScaleVacuumComponents.PURIFICATION.get(world);
 		int purifiedLevel = purification.getPurifiedLevel();
 
 		// Only works if not fully purified

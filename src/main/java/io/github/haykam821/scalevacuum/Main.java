@@ -2,10 +2,6 @@ package io.github.haykam821.scalevacuum;
 
 import java.util.Optional;
 
-import io.github.haykam821.scalevacuum.component.PurificationComponent;
-import nerdhub.cardinal.components.api.ComponentRegistry;
-import nerdhub.cardinal.components.api.ComponentType;
-import nerdhub.cardinal.components.api.event.WorldComponentCallback;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.dimension.v1.EntityPlacer;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -45,7 +41,7 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.FeatureConfig;
 
 public class Main implements ModInitializer {
-	private static final String MOD_ID = "scalevacuum";
+	public static final String MOD_ID = "scalevacuum";
 
 	// Items
 	private static final Identifier ANCIENT_CHORUS_FRUIT_ID = new Identifier(MOD_ID, "ancient_chorus_fruit");
@@ -152,12 +148,6 @@ public class Main implements ModInitializer {
 	// Sound events
 	private static final Identifier BLOCK_DRAGON_EGG_SHEAR_ID = new Identifier(MOD_ID, "block.dragon_egg.shear");
 	public static final SoundEvent BLOCK_DRAGON_EGG_SHEAR = new SoundEvent(BLOCK_DRAGON_EGG_SHEAR_ID);
-
-	// Components
-	private static final Identifier PURIFICATION_ID = new Identifier(MOD_ID, "purification");
-	public static final ComponentType<PurificationComponent> PURIFICATION = ComponentRegistry.INSTANCE
-			.registerIfAbsent(PURIFICATION_ID, PurificationComponent.class)
-			.attach(WorldComponentCallback.EVENT, PurificationComponent::new);
 
 	@Override
 	public void onInitialize() {

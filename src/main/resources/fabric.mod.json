@@ -19,13 +19,22 @@
 		],
 		"client": [
 			"io.github.haykam821.scalevacuum.ClientMain"
+		],
+		"cardinal-components-world": [
+			"io.github.haykam821.scalevacuum.component.ScaleVacuumComponents"
 		]
 	},
 	"mixins": [
 		"scalevacuum.mixin.json"
 	],
+	"custom": {
+		"cardinal-components": [
+			"scalevacuum:purification"
+		]
+	},
 	"depends": {
 		"fabricloader": ">=0.4.0",
-		"fabric": "*"
+		"fabric": "*",
+		"cardinal-components-world": ">=2.5.0"
 	}
 }

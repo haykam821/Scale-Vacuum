@@ -1,31 +1,24 @@
 package io.github.haykam821.scalevacuum.component;
 
-import nerdhub.cardinal.components.api.util.sync.WorldSyncedComponent;
+import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.World;
 
-public class PurificationComponent implements WorldSyncedComponent {
-	private final World world;
+public class PurificationComponent implements AutoSyncedComponent {
 	private int purifiedLevel = 0;
 		
 	public PurificationComponent(World world) {
-		this.world = world;
+		return;
 	}
 
 	@Override
-	public void fromTag(CompoundTag tag) {
+	public void readFromNbt(CompoundTag tag) {
 		this.purifiedLevel = tag.getInt("PurifiedLevel");
 	}
 
 	@Override
-	public CompoundTag toTag(CompoundTag tag) {
+	public void writeToNbt(CompoundTag tag) {
 		tag.putInt("PurifiedLevel", this.purifiedLevel);
-		return tag;
-	}
-
-	@Override
-	public World getWorld() {
-		return this.world;
 	}
 
 	public int getPurifiedLevel() {

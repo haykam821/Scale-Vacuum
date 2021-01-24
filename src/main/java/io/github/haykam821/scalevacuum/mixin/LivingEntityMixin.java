@@ -6,6 +6,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import io.github.haykam821.scalevacuum.Main;
+import io.github.haykam821.scalevacuum.component.ScaleVacuumComponents;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -24,7 +25,7 @@ public abstract class LivingEntityMixin extends Entity {
 		if (!((Object) this instanceof PlayerEntity)) return;
 		if (!Main.isScaleVacuum(this.world)) return;
 
-		int purifiedLevel = Main.PURIFICATION.get(this.world).getPurifiedLevel();
+		int purifiedLevel = ScaleVacuumComponents.PURIFICATION.get(this.world).getPurifiedLevel();
 
 		float originalHealth = ci.getReturnValue();
 		float unbreathableHealth = (float) Math.ceil((float) (4 - purifiedLevel) / 5 * 20);
