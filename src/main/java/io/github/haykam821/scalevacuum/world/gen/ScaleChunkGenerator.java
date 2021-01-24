@@ -1,4 +1,4 @@
-package io.github.haykam821.scalevacuum;
+package io.github.haykam821.scalevacuum.world.gen;
 
 import java.util.Collections;
 import java.util.Optional;
@@ -21,9 +21,9 @@ import net.minecraft.world.gen.chunk.VerticalBlockSample;
 public class ScaleChunkGenerator extends ChunkGenerator {
 	public static final Codec<ScaleChunkGenerator> CODEC = RecordCodecBuilder.create(instance -> {
 		return instance
-			.group(BiomeSource.field_24713
+			.group(BiomeSource.CODEC
 				.fieldOf("biome_source")
-				.forGetter(generator -> generator.biomeSource))
+				.forGetter(generator -> generator.populationSource))
 			.apply(instance, ScaleChunkGenerator::new);
 	});
 
@@ -47,7 +47,7 @@ public class ScaleChunkGenerator extends ChunkGenerator {
 	}
 
 	@Override
-	public Codec<ScaleChunkGenerator> method_28506() {
+	public Codec<ScaleChunkGenerator> getCodec() {
 		return CODEC;
 	}
 

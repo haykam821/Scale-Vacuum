@@ -1,6 +1,6 @@
 package io.github.haykam821.scalevacuum.item;
 
-import io.github.haykam821.scalevacuum.Main;
+import io.github.haykam821.scalevacuum.world.ScaleVacuumDimensions;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -11,6 +11,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
 
+@SuppressWarnings("deprecation")
 class AncientChorusFruitItem extends Item {
 	public AncientChorusFruitItem(Settings settings) {
 		super(settings);
@@ -25,18 +26,18 @@ class AncientChorusFruitItem extends Item {
 		ItemStack newStack = super.finishUsing(stack, world, entity);
 
 		if (!world.isClient) {
-			if (Main.isScaleVacuum(entity.getEntityWorld())) {
+			if (ScaleVacuumDimensions.isScaleVacuum(entity.getEntityWorld())) {
 				if (!(entity instanceof ServerPlayerEntity)) return stack;
 				ServerPlayerEntity player = (ServerPlayerEntity) entity;
 	
 				ServerWorld respawnWorld = player.getServer().getWorld(player.getSpawnPointDimension());
-				FabricDimensions.teleport(player, respawnWorld, Main.EXIT_SURFACE_PLACER);
+				FabricDimensions.teleport(player, respawnWorld, ScaleVacuumDimensions.getExitTarget(respawnWorld, entity));
 			} else {
 				// Ensure the scale vacuum world exists
-				ServerWorld scaleVacuum = world.getServer().getWorld(Main.SCALE_VACUUM_KEY);
+				ServerWorld scaleVacuum = world.getServer().getWorld(ScaleVacuumDimensions.KEY);
 				if (scaleVacuum == null) return stack;
 
-				FabricDimensions.teleport(entity, scaleVacuum, Main.SCALE_VACUUM_PLACER);
+				FabricDimensions.teleport(entity, scaleVacuum, ScaleVacuumDimensions.getEntryTarget(entity));
 			}
 		}
 

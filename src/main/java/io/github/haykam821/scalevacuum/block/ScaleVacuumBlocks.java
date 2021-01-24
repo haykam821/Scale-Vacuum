@@ -23,7 +23,7 @@ public enum ScaleVacuumBlocks {
 	SMOOTH_SCALE_BLOCK("smooth_scale_block", new Block(FabricBlockSettings.copy(SCALE_BLOCK.block)), ItemGroup.BUILDING_BLOCKS),
 	SMOOTH_SCALE_SLAB("smooth_scale_slab", new SlabBlock(FabricBlockSettings.copy(SMOOTH_SCALE_BLOCK.block)), ItemGroup.BUILDING_BLOCKS),
 	SMOOTH_SCALE_STAIRS("smooth_scale_stairs", new ScaleStairsBlock(SMOOTH_SCALE_BLOCK.block), ItemGroup.BUILDING_BLOCKS),
-	DRAGON_FIRE("dragon_fire", new DragonFireBlock(FabricBlockSettings.copyOf(Blocks.FIRE).materialColor(MaterialColor.MAGENTA).lightLevel(state -> 5)), (Item) null);
+	DRAGON_FIRE("dragon_fire", new DragonFireBlock(FabricBlockSettings.copyOf(Blocks.FIRE).materialColor(MaterialColor.MAGENTA).luminance(5)), (Item) null);
 
 	private final Identifier id;
 	private final Block block;

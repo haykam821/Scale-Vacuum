@@ -1,14 +1,14 @@
 package io.github.haykam821.scalevacuum.item;
 
-import java.util.Iterator;
-
-import io.github.haykam821.scalevacuum.Main;
 import io.github.haykam821.scalevacuum.component.PurificationComponent;
 import io.github.haykam821.scalevacuum.component.ScaleVacuumComponents;
-import net.fabricmc.fabric.api.server.PlayerStream;
+import io.github.haykam821.scalevacuum.world.ScaleVacuumDimensions;
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
@@ -29,7 +29,7 @@ public class PurifierItem extends Item {
 		}
 
 		// Only works in Scale Vacuum dimension
-		if (!Main.isScaleVacuum(world)) return TypedActionResult.pass(handStack);
+		if (!ScaleVacuumDimensions.isScaleVacuum(world)) return TypedActionResult.pass(handStack);
 		PurificationComponent purification = ScaleVacuumComponents.PURIFICATION.get(world);
 		int purifiedLevel = purification.getPurifiedLevel();
 
@@ -42,10 +42,8 @@ public class PurifierItem extends Item {
 		purification.setPurifiedLevel(purifiedLevel + 1);
 		
 		// Update player health
-		Iterator<PlayerEntity> players = PlayerStream.world(world).iterator();
-		while (players.hasNext()) {
-			PlayerEntity nextPlayer = players.next();
-			nextPlayer.heal(4.0F);
+		for (ServerPlayerEntity healedPlayer : PlayerLookup.world((ServerWorld) world)) {
+			healedPlayer.heal(4.0F);
 		}
 
 		// Consume item

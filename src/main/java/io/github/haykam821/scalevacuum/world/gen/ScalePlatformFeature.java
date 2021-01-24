@@ -1,4 +1,4 @@
-package io.github.haykam821.scalevacuum;
+package io.github.haykam821.scalevacuum.world.gen;
 
 import java.util.Random;
 
@@ -9,8 +9,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
-import net.minecraft.world.ServerWorldAccess;
-import net.minecraft.world.gen.StructureAccessor;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
@@ -22,7 +21,7 @@ public class ScalePlatformFeature extends Feature<DefaultFeatureConfig> {
 	public static final BlockState PLATFORM_BLOCK = ScaleVacuumBlocks.SCALE_BLOCK.getDefaultState();
 
 	public static final BlockPos PLATFORM_CENTER_POS = new BlockPos(8, 64, 8);
-    public static final ChunkPos PLATFORM_CENTER_CHUNK_POS = new ChunkPos(PLATFORM_CENTER_POS);
+	public static final ChunkPos PLATFORM_CENTER_CHUNK_POS = new ChunkPos(PLATFORM_CENTER_POS);
 
 	public ScalePlatformFeature(Codec<DefaultFeatureConfig> codec) {
 		super(codec);
@@ -39,9 +38,9 @@ public class ScalePlatformFeature extends Feature<DefaultFeatureConfig> {
 	private boolean shouldGenerateCenter(int relativeX, int relativeZ) {
 		return (relativeX == 7 || relativeX == 8) && (relativeZ == 7 || relativeZ == 8);
 	}
- 
+
 	@Override
-	public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockPos pos, DefaultFeatureConfig config) {
+	public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos pos, DefaultFeatureConfig config) {
 		ChunkPos chunkPos = new ChunkPos(pos);
 		if (chunkPos.x != PLATFORM_CENTER_CHUNK_POS.x || chunkPos.z != PLATFORM_CENTER_CHUNK_POS.z) {
 			return true;

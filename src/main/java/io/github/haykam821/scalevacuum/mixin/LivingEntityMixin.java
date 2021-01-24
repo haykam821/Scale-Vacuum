@@ -5,8 +5,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import io.github.haykam821.scalevacuum.Main;
 import io.github.haykam821.scalevacuum.component.ScaleVacuumComponents;
+import io.github.haykam821.scalevacuum.world.ScaleVacuumDimensions;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -23,7 +23,7 @@ public abstract class LivingEntityMixin extends Entity {
 	void getMaximumHealthInScaleVacuum(CallbackInfoReturnable<Float> ci) {
 		if (this.world.isClient) return;
 		if (!((Object) this instanceof PlayerEntity)) return;
-		if (!Main.isScaleVacuum(this.world)) return;
+		if (!ScaleVacuumDimensions.isScaleVacuum(this.world)) return;
 
 		int purifiedLevel = ScaleVacuumComponents.PURIFICATION.get(this.world).getPurifiedLevel();
 
