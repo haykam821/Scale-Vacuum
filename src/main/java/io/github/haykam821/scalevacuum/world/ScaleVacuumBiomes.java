@@ -7,6 +7,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.biome.SpawnSettings;
+import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 
 public final class ScaleVacuumBiomes {
@@ -18,6 +19,7 @@ public final class ScaleVacuumBiomes {
 	private static Biome createBiome() {
 		GenerationSettings generationSettings = new GenerationSettings.Builder()
 			.surfaceBuilder(SurfaceBuilder.NOPE.withConfig(SurfaceBuilder.STONE_CONFIG))
+			.feature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, Main.CONFIGURED_SCALE_PLATFORM)
 			.build();
 
 		BiomeEffects effects = new BiomeEffects.Builder()
