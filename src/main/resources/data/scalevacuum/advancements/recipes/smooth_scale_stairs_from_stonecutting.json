@@ -10,7 +10,9 @@
 			"trigger": "minecraft:inventory_changed",
 			"conditions": {
 				"items": [{
-					"item": "scalevacuum:smooth_scale_block"
+					"items": [
+						"scalevacuum:smooth_scale_block"
+					]
 				}]
 			}
 		},

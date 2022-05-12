@@ -5,12 +5,14 @@
 	"ambient_light": 0.5,
 	"has_skylight": false,
 	"has_ceiling": false,
-	"infiniburn": "scalevacuum:infiniburn_scale_vacuum",
+	"infiniburn": "#scalevacuum:infiniburn_scale_vacuum",
 	"logical_height": 256,
 	"has_raids": false,
 	"respawn_anchor_works": false,
 	"bed_works": false,
 	"piglin_safe": false,
 	"coordinate_scale": 1,
-	"effects": "scalevacuum:scale_vacuum"
+	"effects": "scalevacuum:scale_vacuum",
+	"height": 256,
+	"min_y": 0
 }

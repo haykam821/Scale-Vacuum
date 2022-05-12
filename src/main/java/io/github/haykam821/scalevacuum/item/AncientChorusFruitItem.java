@@ -11,7 +11,6 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
 
-@SuppressWarnings("deprecation")
 class AncientChorusFruitItem extends Item {
 	public AncientChorusFruitItem(Settings settings) {
 		super(settings);

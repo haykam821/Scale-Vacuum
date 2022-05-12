@@ -47,7 +47,7 @@ public class PurifierItem extends Item {
 		}
 
 		// Consume item
-		if (!player.abilities.creativeMode) {
+		if (!player.getAbilities().creativeMode) {
 			handStack.decrement(1);
 		}
 		return TypedActionResult.consume(handStack);

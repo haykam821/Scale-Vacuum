@@ -10,7 +10,9 @@
 			"trigger": "minecraft:inventory_changed",
 			"conditions": {
 				"items": [{
-					"item": "minecraft:nether_star"
+					"items": [
+						"minecraft:nether_star"
+					]
 				}]
 			}
 		},

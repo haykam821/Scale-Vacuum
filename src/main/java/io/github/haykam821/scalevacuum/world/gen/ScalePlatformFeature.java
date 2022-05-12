@@ -1,7 +1,5 @@
 package io.github.haykam821.scalevacuum.world.gen;
 
-import java.util.Random;
-
 import com.mojang.serialization.Codec;
 
 import io.github.haykam821.scalevacuum.block.ScaleVacuumBlocks;
@@ -10,9 +8,9 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 public class ScalePlatformFeature extends Feature<DefaultFeatureConfig> {
 	public static final BlockState CORNER_BLOCK = Blocks.AIR.getDefaultState();
@@ -40,8 +38,10 @@ public class ScalePlatformFeature extends Feature<DefaultFeatureConfig> {
 	}
 
 	@Override
-	public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos pos, DefaultFeatureConfig config) {
-		ChunkPos chunkPos = new ChunkPos(pos);
+	public boolean generate(FeatureContext<DefaultFeatureConfig> context) {
+		StructureWorldAccess world = context.getWorld();
+
+		ChunkPos chunkPos = new ChunkPos(context.getOrigin());
 		if (chunkPos.x != PLATFORM_CENTER_CHUNK_POS.x || chunkPos.z != PLATFORM_CENTER_CHUNK_POS.z) {
 			return true;
 		}

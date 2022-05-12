@@ -17,7 +17,7 @@ public class AbstractFireBlockMixin {
 	@Inject(method = "getState", at = @At("TAIL"), cancellable = true)
 	private static void getDragonFireState(BlockView world, BlockPos pos, CallbackInfoReturnable<BlockState> ci) {
 		BlockState baseState = world.getBlockState(pos.down());
-		if (DragonFireBlock.isDragonFireBase(baseState.getBlock())) {
+		if (DragonFireBlock.isDragonFireBase(baseState)) {
 			ci.setReturnValue(ScaleVacuumBlocks.DRAGON_FIRE.getDefaultState());
 		}
 	}

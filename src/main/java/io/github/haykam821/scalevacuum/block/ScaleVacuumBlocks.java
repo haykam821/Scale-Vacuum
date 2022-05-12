@@ -5,7 +5,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.MaterialColor;
+import net.minecraft.block.MapColor;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.WallBlock;
 import net.minecraft.item.BlockItem;
@@ -23,7 +23,7 @@ public enum ScaleVacuumBlocks {
 	SMOOTH_SCALE_BLOCK("smooth_scale_block", new Block(FabricBlockSettings.copy(SCALE_BLOCK.block)), ItemGroup.BUILDING_BLOCKS),
 	SMOOTH_SCALE_SLAB("smooth_scale_slab", new SlabBlock(FabricBlockSettings.copy(SMOOTH_SCALE_BLOCK.block)), ItemGroup.BUILDING_BLOCKS),
 	SMOOTH_SCALE_STAIRS("smooth_scale_stairs", new ScaleStairsBlock(SMOOTH_SCALE_BLOCK.block), ItemGroup.BUILDING_BLOCKS),
-	DRAGON_FIRE("dragon_fire", new DragonFireBlock(FabricBlockSettings.copyOf(Blocks.FIRE).materialColor(MaterialColor.MAGENTA).luminance(5)), (Item) null);
+	DRAGON_FIRE("dragon_fire", new DragonFireBlock(FabricBlockSettings.copyOf(Blocks.FIRE).mapColor(MapColor.MAGENTA).luminance(5)), (Item) null);
 
 	private final Identifier id;
 	private final Block block;

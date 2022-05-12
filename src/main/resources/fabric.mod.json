@@ -34,6 +34,7 @@
 	},
 	"depends": {
 		"fabricloader": ">=0.4.0",
+		"java": ">=17",
 		"fabric": "*",
 		"cardinal-components-world": ">=2.5.0"
 	}

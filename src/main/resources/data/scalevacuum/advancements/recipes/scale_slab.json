@@ -10,7 +10,9 @@
 			"trigger": "minecraft:inventory_changed",
 			"conditions": {
 				"items": [{
-					"item": "scalevacuum:scale_block"
+					"items": [
+						"scalevacuum:scale_block"
+					]
 				}]
 			}
 		},

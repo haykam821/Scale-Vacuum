@@ -1,7 +1,7 @@
 package io.github.haykam821.scalevacuum.component;
 
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.World;
 
 public class PurificationComponent implements AutoSyncedComponent {
@@ -12,13 +12,13 @@ public class PurificationComponent implements AutoSyncedComponent {
 	}
 
 	@Override
-	public void readFromNbt(CompoundTag tag) {
-		this.purifiedLevel = tag.getInt("PurifiedLevel");
+	public void readFromNbt(NbtCompound nbt) {
+		this.purifiedLevel = nbt.getInt("PurifiedLevel");
 	}
 
 	@Override
-	public void writeToNbt(CompoundTag tag) {
-		tag.putInt("PurifiedLevel", this.purifiedLevel);
+	public void writeToNbt(NbtCompound nbt) {
+		nbt.putInt("PurifiedLevel", this.purifiedLevel);
 	}
 
 	public int getPurifiedLevel() {

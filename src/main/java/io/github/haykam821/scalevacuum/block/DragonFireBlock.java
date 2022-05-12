@@ -19,11 +19,11 @@ public class DragonFireBlock extends AbstractFireBlock {
 	}
 
 	public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-		return DragonFireBlock.isDragonFireBase(world.getBlockState(pos.down()).getBlock());
+		return DragonFireBlock.isDragonFireBase(world.getBlockState(pos.down()));
 	}
 
-	public static boolean isDragonFireBase(Block block) {
-		return block.isIn(ScaleVacuumBlockTags.DRAGON_FIRE_BASE_BLOCKS);
+	public static boolean isDragonFireBase(BlockState state) {
+		return state.isIn(ScaleVacuumBlockTags.DRAGON_FIRE_BASE_BLOCKS);
 	}
 
 	public boolean isFlammable(BlockState state) {

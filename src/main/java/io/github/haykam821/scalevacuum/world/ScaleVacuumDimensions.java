@@ -16,12 +16,12 @@ import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.World;
 
 public final class ScaleVacuumDimensions {
-	public static final RegistryKey<World> KEY = RegistryKey.of(Registry.DIMENSION, Main.SCALE_VACUUM_ID);
+	public static final RegistryKey<World> KEY = RegistryKey.of(Registry.WORLD_KEY, Main.SCALE_VACUUM_ID);
 
 	private static final Vec3d ENTRY_POS = new Vec3d(8, 65, 8);
 
 	public static TeleportTarget getEntryTarget(Entity entity) {
-		return new TeleportTarget(ENTRY_POS, Vec3d.ZERO, entity.yaw, 0);
+		return new TeleportTarget(ENTRY_POS, Vec3d.ZERO, entity.getYaw(), 0);
 	}
 
 	private static BlockPos getExactExitPos(ServerWorld destination, Entity entity) {
@@ -41,7 +41,7 @@ public final class ScaleVacuumDimensions {
 
 	public static TeleportTarget getExitTarget(ServerWorld destination, Entity entity) {
 		BlockPos topPos = destination.getTopPosition(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ScaleVacuumDimensions.getExactExitPos(destination, entity));
-		return new TeleportTarget(Vec3d.of(topPos), Vec3d.ZERO, entity.yaw, 0);
+		return new TeleportTarget(Vec3d.of(topPos), Vec3d.ZERO, entity.getYaw(), 0);
 	}
 
 	public static boolean isScaleVacuum(World world) {
