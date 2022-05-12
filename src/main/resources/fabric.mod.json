@@ -22,6 +22,9 @@
 		],
 		"cardinal-components-world": [
 			"io.github.haykam821.scalevacuum.component.ScaleVacuumComponents"
+		],
+		"fabric-datagen": [
+			"io.github.haykam821.scalevacuum.data.ScaleVacuumDatagen"
 		]
 	},
 	"mixins": [

@@ -7,6 +7,11 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public final class ScaleVacuumBlockTags {
-	private static final Identifier DRAGON_FIRE_BASE_BLOCKS_ID = new Identifier(Main.MOD_ID, "dragon_fire_base_blocks");
-	public static final TagKey<Block> DRAGON_FIRE_BASE_BLOCKS = TagKey.of(Registry.BLOCK_KEY, DRAGON_FIRE_BASE_BLOCKS_ID);
+	public static final TagKey<Block> DRAGON_FIRE_BASE_BLOCKS = ScaleVacuumBlockTags.of("dragon_fire_base_blocks");
+	public static final TagKey<Block> INFINIBURN_SCALE_VACUUM = ScaleVacuumBlockTags.of("infiniburn_scale_vacuum");
+
+	private static TagKey<Block> of(String path) {
+		Identifier id = new Identifier(Main.MOD_ID, path);
+		return TagKey.of(Registry.BLOCK_KEY, id);
+	}
 }
